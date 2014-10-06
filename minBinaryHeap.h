@@ -44,7 +44,6 @@ public:
 	vector<Job *> getHeap();
 
 	//*******setters*********
-	//void insert(Job *);
 	void insertJob(Job *);
 	void print();
 
