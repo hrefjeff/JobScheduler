@@ -6,6 +6,9 @@
     Due Date: November 20, 2012
 *****************************************************/
 
+#ifndef _JOB_H
+#define _JOB_H
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -24,6 +27,7 @@ public:
     Job();
     Job(string, int);
     ~Job();
+    int getPriorityLevel();
 
     //Job<T>* next;     // Took out because jobs don't point to other jobs
     //Job(T e, Node* n);// Again, no job points to other job
@@ -31,3 +35,5 @@ public:
     //friend ostream& operator<< <>(ostream& os, const LinkedList<T>& l);
     
 };
+
+#endif

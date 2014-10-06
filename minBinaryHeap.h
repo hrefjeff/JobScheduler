@@ -9,12 +9,16 @@
 #ifndef _MINBINARYHEAP_H
 #define _MINBINARYHEAP_H
 
-template <class T>
+#include "job.h"
+#include <vector>
+using namespace std;
+
+//template <class T>
 class minBinaryHeap {
-private:
+//private:
 
 	// Array of pointers to <instert anything here>
-	vector<T *> heap;
+	vector<Job *> heap;
 	int numberOfItems;
 
 	int getParent(int index);
@@ -29,18 +33,19 @@ public:
 	minBinaryHeap(minBinaryHeap& heap);  // For copy constructor
 	~minBinaryHeap();
 
-	T* getMin();
+	Job* getMin();
 	void checkMin();
-	void insert(T* anything);
+	//void insert(T* anything);
 	void sort();
 	bool isEmpty();
 
-	// getters
-	int  getNumberOfItems();
-	vector<T *> getHeap();
+	//*******getters*********
+	int getNumberOfItems();
+	vector<Job *> getHeap();
 
-	// setters
-
+	//*******setters*********
+	//void insert(Job *);
+	void insertJob(Job *);
 	void print();
 
 };

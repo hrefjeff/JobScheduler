@@ -1,22 +1,22 @@
 #include "job.h"
+#include "minBinaryHeap.h"
 #include <vector>
 #include <string>
 using namespace std;
 
 int main () {
 	
-	vector<Job *> queue;
+	//vector<Job *> PriorityQueue;
+	minBinaryHeap PriorityQueue;
 
-	queue.push_back(new Job("pr0n", 1));
-	queue.push_back(new Job("Print", 5));
-	queue.push_back(new Job("test", 0));
+	PriorityQueue.insertJob(new Job("pr0n", 2));
+	PriorityQueue.insertJob(new Job("Print", 0));
+	PriorityQueue.insertJob(new Job("test", 1));
+	PriorityQueue.insertJob(new Job("google", 0));
 
-	cout << "Number of elements in queue: " << queue.size() << endl;
+	cout << "Number of elements in PriorityQueue: " << PriorityQueue.getNumberOfItems() << endl;
 
-	for (int i = 0; i<queue.size(); i++)
-		cout << "Job " << i << ": " << queue[i]->name << "=== Priority: " << queue[i]->priorityLevel << endl;
-
-	queue.clear();
+	PriorityQueue.print();
 
 	return 0;
 }

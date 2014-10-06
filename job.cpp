@@ -8,6 +8,7 @@
 
 #include "job.h"
 #include <string>
+using namespace std;
 
 Job::Job() {
 
@@ -27,6 +28,12 @@ Job::~Job(){
 
     name = "";
     priorityLevel = 0;
+
+}
+
+int Job::getPriorityLevel() {
+
+    return priorityLevel;
 
 }
 
