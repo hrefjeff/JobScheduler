@@ -126,12 +126,56 @@ int minBinaryHeap::getRightChild(int index) {
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   Writer(s): Jeffrey Allen
-  Purpose  : Constructor for minBinaryHeap
-  Incoming : N/A
+  Purpose  : Recursive function which moves the specified
+             index down to the correct position while
+             keeping the heap property of the tree
+  Incoming : Index of position where hole is in tree
   Outgoing : N/A
   Return   : N/A
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-void minBinaryHeap::percolateDown(int index) {}
+void minBinaryHeap::percolateDown(int index) {
+
+  int leftChild, rightChild, minimum;
+
+  // Get children of job in the queue
+  leftChild = getLeftChild(index);
+  rightChild = getRightChild(index);
+
+  // Failsafes
+  if (rightChild >= numberOfItems) {
+
+    if (leftChild >= numberOfItems)
+      return;
+
+    else
+      minimum = leftChild;
+
+  }
+
+  // Finds the minimum child based on priority level
+  else {
+
+    if (heap[leftChild]->getPriorityLevel() <= heap[rightChild]->getPriorityLevel())
+      minimum = leftChild;
+    else
+      minimum = rightChild;
+
+  }
+
+  // Swap and percolate down to keep heap order
+  if (heap[index]->getPriorityLevel() > heap[minimum]->getPriorityLevel()) {
+
+    Job* temp;
+
+    temp = heap[index];
+    heap[index] = heap[minimum];
+    heap[minimum] = temp;
+
+    percolateDown(minimum);
+
+  }
+
+}
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   Writer(s): Jeffrey Allen
@@ -140,7 +184,29 @@ void minBinaryHeap::percolateDown(int index) {}
   Outgoing : N/A
   Return   : N/A
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-Job* minBinaryHeap::getMin(){}
+Job* minBinaryHeap::getMin() {
+
+  if (isEmpty())
+    return 0;
+
+  // copy root
+  Job* minimum = heap[0];
+
+  // Instantiate place where I want to start the percolation process
+  int index = 0;
+
+  // Move the last node in the heap to the top root and reduce the num of items
+  heap[0] = heap[numberOfItems - 1];
+  heap[numberOfItems - 1] = 0;
+  numberOfItems--;
+
+  // percolate the last node down the tree
+  if (numberOfItems > 0)
+      percolateDown(index);
+
+  return minimum;
+
+}
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   Writer(s): Jeffrey Allen
@@ -159,7 +225,11 @@ void minBinaryHeap::checkMin(){}
   Outgoing : N/A
   Return   : N/A
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-void minBinaryHeap::sort(){}
+void minBinaryHeap::sort() {
+
+
+
+}
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   Writer(s): Jeffrey Allen

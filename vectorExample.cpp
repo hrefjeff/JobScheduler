@@ -6,7 +6,6 @@ using namespace std;
 
 int main () {
 	
-	//vector<Job *> PriorityQueue;
 	minBinaryHeap PriorityQueue;
 
 	PriorityQueue.insertJob(new Job("pr0n", 2));
@@ -15,6 +14,12 @@ int main () {
 	PriorityQueue.insertJob(new Job("google", 0));
 
 	cout << "Number of elements in PriorityQueue: " << PriorityQueue.getNumberOfItems() << endl;
+
+	PriorityQueue.print();
+
+	cout << "**********POPPED THE MINIMUM I'M SWEATIN! WHOOO!**********" << endl; 
+	cout << "Popped:" << PriorityQueue.getMin()->name << endl;
+	cout << "**********************************************************" << endl;
 
 	PriorityQueue.print();
 

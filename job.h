@@ -27,11 +27,9 @@ public:
     Job();
     Job(string, int);
     ~Job();
+    string getName();
     int getPriorityLevel();
 
-    //Job<T>* next;     // Took out because jobs don't point to other jobs
-    //Job(T e, Node* n);// Again, no job points to other job
-    //template <class T1> friend class LinkedList;
     //friend ostream& operator<< <>(ostream& os, const LinkedList<T>& l);
     
 };
