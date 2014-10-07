@@ -1,6 +1,6 @@
 #JobScheduler
 
-###CS420 Job scheduler for an operating system
+###CS420 Minimum priority which acts as the workhorse for an operating system scheduler
 
 Compiled with g++ using ubuntu 13.10
 
