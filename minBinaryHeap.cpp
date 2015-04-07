@@ -26,7 +26,7 @@ minBinaryHeap::minBinaryHeap() {
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   Writer(s): Jeffrey Allen
-  Purpose  : Constructor for minBinaryHeap
+  Purpose  : Overloaded Constructor for minBinaryHeap
   Incoming : Desired size of new heap
   Outgoing : N/A
   Return   : N/A
@@ -82,8 +82,8 @@ minBinaryHeap::~minBinaryHeap() {
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   Writer(s): Jeffrey Allen
-  Purpose  : Constructor for minBinaryHeap
-  Incoming : N/A
+  Purpose  : Gets the parent of specified index
+  Incoming : Index of node you want the parent from
   Outgoing : N/A
   Return   : N/A
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
